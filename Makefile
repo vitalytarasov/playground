@@ -5,10 +5,15 @@ IMAGE = play
 build:
 	GOOS=linux CGO_ENABLED=0 GOARCH=amd64 go build -o $(APP)
 
-# removes executable and containers
+# removes executable, container and image
 clean:
 	rm -f $(APP)
-	docker rm -f $(IMAGE)
+	docker container rm $(IMAGE)
+	docker rmi -f $(IMAGE)
+
+# formats go sources
+fmt:
+	go fmt playground/...
 
 # builds docker image
 image: build
@@ -16,4 +21,4 @@ image: build
 
 # runs container
 run: image
-	docker run -t $(IMAGE) $(IMAGE)
+	docker run --name $(IMAGE) -p 1080:1080 $(IMAGE)

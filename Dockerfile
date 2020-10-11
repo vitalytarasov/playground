@@ -4,3 +4,4 @@ WORKDIR /app
 COPY play .
 USER nobody
 ENTRYPOINT /app/play
+EXPOSE 1080
