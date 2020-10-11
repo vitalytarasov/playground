@@ -1,9 +1,9 @@
 APP = play
 IMAGE = play
 
-# builds executable for container
+# builds executable for alpine container
 build:
-	GOOS=linux CGO_ENABLED=0 GOARCH=amd64 go build -o $(APP)
+	GOOS=linux CGO_ENABLED=0 go build -o $(APP)
 
 # removes executable, container and image
 clean:

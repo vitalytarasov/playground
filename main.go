@@ -16,5 +16,5 @@ func main() {
 	if err := srv.ListenAndServe(); err != nil {
 		fmt.Printf("cannot start server (%v)", err)
 	}
-	fmt.Print("exiting")
+	fmt.Println("exiting")
 }
