@@ -7,9 +7,9 @@ build:
 
 # removes executable, container and image
 clean:
-	rm -f $(APP)
-	docker container rm $(IMAGE)
-	docker rmi -f $(IMAGE)
+	-rm -f $(APP)
+	-docker container rm $(IMAGE)
+	-docker rmi -f $(IMAGE)
 
 # formats go sources
 fmt:
